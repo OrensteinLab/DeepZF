@@ -5,8 +5,10 @@ We present DeepZF, a two-step deep-learning-based pipeline for predicting bindin
 # Prerequisites
 BindZFpredictor architecture is based on the ProteinBERT: https://github.com/nadavbra/protein_bert.
 Therfor the first step is to install protein-bert:
-<pip install protein-bert>
 
+*** bash
+pip install protein-bert
+*** 
 
 
 # PWMpredictor
