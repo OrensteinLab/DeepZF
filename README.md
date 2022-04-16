@@ -19,7 +19,7 @@ After installing ProteinBERT you can update finetunning.py as in this git for sa
  ```
  cd path/to/BindZFpredictor/directory
 ```
-2.Creating saving folders 
+2. Create saving folders 
 ```
    data_name="${i}_zf_${i}_b"
    (where i = 10k k= [0,10] see Data/BindZFpredictor folder)
@@ -58,7 +58,7 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 	
 ## Usage
 ### Training PWMpredictor
-1. create saving folders:
+1. Create saving folders:
 ```
 	f="path/to/PWMpredictor_directory"
 
@@ -70,7 +70,7 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 	
 	mkdir -p ${f}/predictions
   ```
-2. run model:
+2. Run model:
 ```
 	python3.6 main_loo_PWMprecictor.py -d_add /path_to_data/ -add ${f} -zf_p_df c_rc_df.csv -lr $lr -e $i -res_num 12 -r 0 -t_v retrain -ac_x False >> ${f}_out
 ```
