@@ -112,7 +112,7 @@ python3.6 eval_PWMpredictor.py -p_add /predictions_folder/ --c_rc_add /path/to/c
 ## Model training
 1. Same as stage 1 in PWMpredictor
 
-2. run model:
+2. Run model:
 ```
 	python3.6 main_loo_PWMprecictor.py -d_add /path_to_data/ -add ${f} -zf_p_df zf_pred.csv -lr $lr -e $i -res_num 12 -r 0 -t_v retrain -ac_x False >> ${f}_out
 ```
