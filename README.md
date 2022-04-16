@@ -41,8 +41,9 @@ After installing ProteinBERT you can update finetunning.py as in this git for sa
     '-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True
 ```
 ### Creating predicted binding ZF dataframe ans evaluate model
+```
 python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path/to/Data
-
+```
 ### Flags
 ```
 '-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True
