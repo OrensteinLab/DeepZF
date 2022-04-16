@@ -14,17 +14,21 @@ pip install protein-bert
 ### Training BindZFpredictor
 After installing ProteinBERT you can update finetunning.py as in this git for saving predections.
 
-```bash
-1. cd path/to/BindZFpredictor/directory
 
+1.
+ ```
+ cd path/to/BindZFpredictor/directory
+```
 2.Creating saving folders 
+```
    data_name="${i}_zf_${i}_b"
    (where i = 10k k= [0,10] see Data/BindZFpredictor folder)
    f="path/to/BindZFpredictor/directory/${data_name}"
    mkdir -p $f
    mkdir -p ${f}/predictions
-
+```
 3. Run model
+```
    python3.6 main_bindzfpredictor.py -b_n ${data_name} -b_d path/to/bemchmark_directory -m_d path/to/ProteinBERT_pretrained_model -r 1 -p_add ${f} >> out
 ```
 ### Flags
@@ -54,7 +58,7 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 ## Usage
 ### Training PWMpredictor
 1. create saving folders:
-
+```
 	f="path/to/PWMpredictor_directory"
 
 	mkdir -p $f
@@ -64,11 +68,11 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 	mkdir -p ${f}/models
 	
 	mkdir -p ${f}/predictions
-  
+  ```
 2. run model:
-
+```
 	python3.6 main_loo_PWMprecictor.py -d_add /path_to_data/ -add ${f} -zf_p_df c_rc_df.csv -lr $lr -e $i -res_num 12 -r 0 -t_v retrain -ac_x False >> ${f}_out
-
+```
 ### Flags
 ```
 '-d_add', '--data_folder_address', help='main data and lables folder', type=str, required=True)
@@ -84,16 +88,18 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 
 ### Model evaluation:
 For PWMpredoctor evaluation, we computed the Pearson correlation of each quartet in the PWM matrix representing one position in the binding site.
-
-
+The falwwing script calultes Pearson correlation and save the Pearson correlation scv file
 ```
- ./evalPWMpredictor.sh
+python3.6 eval_PWMpredictor.py -p_add /predections_folder/ --c_rc_add /path/to/c_rc_df.csv -s_add /path_for savings >> out
 ```
-The script above creates 1. mosbat_input directory with: 1. mosbat input txt files (ground truth and predicted PWMS)
-							 2. out.txt with
+### Flags
+'-p_add', '--pred_folder_add', help='c_rc predictions folder add', type=str, required=True
+'-c_rc_add', '--c_rc_add', help='c_rc data frame folder add', type=str, required=True
+'-s_add', '--s_add', help='saving folder add', type=str, required=True
+
 
 # DeepZF 
-# Prerequisites
+## Prerequisites
 1. runing the model
 	* python >= 3.6
 	* tensorflow >= 2.4.0
@@ -102,21 +108,26 @@ The script above creates 1. mosbat_input directory with: 1. mosbat input txt fil
 	* [MoSBAT](https://github.com/csglab/MoSBAT) for DeepZF evaluation.
 		
 ## Model training
-1. create saving folders:
-
-	f="path/to/PWMpredictor_directory"
-
-	mkdir -p $f
-	
-	mkdir -p ${f}/history
-	
-	mkdir -p ${f}/models
-	
-	mkdir -p ${f}/predictions
-  
+1. Same as stage one in PWMpredictor
+  ```
 2. run model:
-
+```
 	python3.6 main_loo_PWMprecictor.py -d_add /path_to_data/ -add ${f} -zf_p_df zf_pred.csv -lr $lr -e $i -res_num 12 -r 0 -t_v retrain -ac_x False >> ${f}_out
+```
+### Flags
+Same as in PWMpredictor
+(-zf_p_df is different know)
 
 ### Model evaluation:
 For DeepZF evalution we calculated the similarity of two motif pairs (on the predicted and experimentally based PWM), using [MoSBAT](https://github.com/csglab/MoSBAT).
+Run bash script: (update paths)
+```
+./eval_DeepZF.sh
+```
+The script above creates 2 folder:
+1. mosbat_input: includyes mosbat input txt  files: ground ruth and predicted PWMs.
+2. mosbat_output: inculudes: 
+   * results.energy.correl.txt
+   * correlation data frame: Pearson correlation score for each protein.
+   * out_eval_mosbat.txt: a txtx file with mean and std score.
+
