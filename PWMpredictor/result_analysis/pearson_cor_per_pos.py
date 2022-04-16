@@ -19,7 +19,6 @@ def cal_p_c_per_pos(pred_mat, gt_mat, s_f_add):
     pc_pos_df['pos_2'] = pos_2_perason_arr
     pc_pos_df['pos_3'] = pos_3_perason_arr
     pc_pos_df.to_csv(s_f_add + 'pc_pos_df.csv', index=False)
-    pc_pos_df.to_excel(s_f_add + 'pc_pos_df.xlsx', index=False)
     # mean and std pearson correlation of each position
     for i in range(pos_pearson_l.__len__()):
         print('mean pearson correlation of position %d is %.4f' % (i+1, np.nanmean(pos_pearson_l[i])))
