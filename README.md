@@ -47,4 +47,38 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 # PWMpredictor
 
 ## Prerequisites
+* python >= 3.6
+* tensorflow >= 2.4.0
 
+## Usage
+### Training PWMpredictor
+1. create saving folders:
+
+	f="path/to/PWMpredictor_directory"
+
+	mkdir -p $f
+	
+	mkdir -p ${f}/history
+	
+	mkdir -p ${f}/models
+	
+	mkdir -p ${f}/predictions
+  
+2. run model:
+
+python3.6 main_loo_PWMprecictor.py -d_add /path_to_data/ -add ${f} -zf_p_df zf_pred.csv -lr $lr -e $i -res_num 12 -r 0 -t_v retrain -ac_x False >> ${f}_out
+
+### Flags
+```
+'-d_add', '--data_folder_address', help='main data and lables folder', type=str, required=True)
+'-add', '--folder_address', help='main folder address for savings', type=str, required=True
+'-zf_p_df', '--pred_zf_df', help='predicted binding zinc fingers df', type=str, required=True
+'-lr', '--learning_rate', help='learning rate of adam optimizer', type=float, required=True
+'-e', '--epochs', help='number of epochs', type=int, required=True
+'-res_num', '--residual_num', help='number of residuals to use', type=int, required=True
+'-r', '--run_gpu', help='equal 1 if should run on gpu', type=int, required=True
+'-t_v', '--transfer_version', help='last_layer or retrain', type=str, required=True
+'-ac_x', '--amino_acid_x', help='use b1h data with amino acid x', type=str, required=True
+```
+
+   
