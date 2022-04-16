@@ -89,7 +89,7 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predicted ZF -m_p path
 
 ### Model evaluation:
 For PWMpredictor evaluation, we computed the Pearson correlation of each quartet in the PWM matrix representing one position in the binding site.
-The fallowing script calcultes Pearson correlation and save the Pearson correlation scv file
+The fallowing script calcultes the Pearson correlation and saves the Pearson correlation scv file
 ```
 python3.6 eval_PWMpredictor.py -p_add /predictions_folder/ --c_rc_add /path/to/c_rc_df.csv -s_add /path_for savings >> out
 ```
