@@ -1,6 +1,6 @@
 f="update main folder path: main directory path pf pwm predictor"
 
-dir=${f}/zf_40_lr_0.001_epocs_25
+dir=${f}/pwm_predict_folder
 
 echo $dir;
 mkdir -p $f/mosbat_input
