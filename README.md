@@ -94,10 +94,11 @@ The falwwing script calultes Pearson correlation and save the Pearson correlatio
 python3.6 eval_PWMpredictor.py -p_add /predections_folder/ --c_rc_add /path/to/c_rc_df.csv -s_add /path_for savings >> out
 ```
 ### Flags
+```
 '-p_add', '--pred_folder_add', help='c_rc predictions folder add', type=str, required=True
 '-c_rc_add', '--c_rc_add', help='c_rc data frame folder add', type=str, required=True
 '-s_add', '--s_add', help='saving folder add', type=str, required=True
-
+```
 
 # DeepZF 
 ## Prerequisites
