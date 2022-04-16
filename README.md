@@ -1,18 +1,18 @@
 # DeepZF
-We present DeepZF, a two-step deep-learning-based pipeline for predicting binding ZFs and their DNA-binding preferences given only the amino acid sequence of a C2H2-ZF protein. To the best of our knowledge, we compiled the first in vivo dataset of binding and non-binding ZFs for training the first ZF-binding classifier; BindZFpredictor. We took advantage of both in vivo and in vitro datasets to learn the recognition code of ZF-DNA binding through transfer learning. Our newly developed model; PWMpredictor is the first to utilize deep learning for the task.
+We present DeepZF, a two-step deep-learning-based pipeline for predicting binding ZFs and their DNA-binding preferences given only the amino acid sequence of a C2H2-ZF protein. To the best of our knowledge, we compiled the first in vivo dataset of binding and non-binding ZFs for training the first ZF-binding classifier; BindZFpredictor. We took advantage of both in vivo and in vitro datasets to learn the recognition code of ZF-DNA binding through transfer learning. Our newly developed model, PWMpredictor, is the first to utilize deep learning for the task.
 
 # BindZFpredictor
 ## Prerequisites
 BindZFpredictor architecture is based on [ProteinBERT](https://github.com/nadavbra/protein_bert) which was implemented using Tensorflow.
 
-By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will get all BindZFpredictor requiremnts:
+By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will get all BindZFpredictor requirements:
 
 ```bash
 pip install protein-bert
 ```
 ## Usage 
 ### Training BindZFpredictor
-After installing ProteinBERT you can update finetunning.py as in this git for saving predections.
+After installing ProteinBERT you can update finetunning.py as in this git for saving predictions.
 
 
 1.
@@ -42,7 +42,7 @@ After installing ProteinBERT you can update finetunning.py as in this git for sa
 ```
 ### Creating predicted binding ZF dataframe and evaluate model
 ```
-python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path/to/Data
+python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predicted ZF -m_p path/to/Data
 ```
 ### Flags
 ```
@@ -88,10 +88,10 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 ```
 
 ### Model evaluation:
-For PWMpredoctor evaluation, we computed the Pearson correlation of each quartet in the PWM matrix representing one position in the binding site.
-The falwwing script calultes Pearson correlation and save the Pearson correlation scv file
+For PWMpredictor evaluation, we computed the Pearson correlation of each quartet in the PWM matrix representing one position in the binding site.
+The fallowing script calcultes Pearson correlation and save the Pearson correlation scv file
 ```
-python3.6 eval_PWMpredictor.py -p_add /predections_folder/ --c_rc_add /path/to/c_rc_df.csv -s_add /path_for savings >> out
+python3.6 eval_PWMpredictor.py -p_add /predictions_folder/ --c_rc_add /path/to/c_rc_df.csv -s_add /path_for savings >> out
 ```
 ### Flags
 ```
@@ -102,7 +102,7 @@ python3.6 eval_PWMpredictor.py -p_add /predections_folder/ --c_rc_add /path/to/c
 
 # DeepZF 
 ## Prerequisites
-1. runing the model
+1. running the model
 	* python >= 3.6
 	* tensorflow >= 2.4.0
 2. Model evaluation
@@ -121,15 +121,15 @@ Same as in PWMpredictor
 (-zf_p_df is different know)
 
 ### Model evaluation:
-For DeepZF evalution we calculated the similarity of two motif pairs (on the predicted and experimentally based PWM), using [MoSBAT](https://github.com/csglab/MoSBAT).
+For DeepZF evaluation we calculated the similarity of two motif pairs (on the predicted and experimentally based PWM), using [MoSBAT](https://github.com/csglab/MoSBAT).
 Run bash script: (update paths)
 ```
 ./eval_DeepZF.sh
 ```
 The script above creates 2 folder:
-1. mosbat_input: includyes mosbat input txt  files: ground ruth and predicted PWMs.
-2. mosbat_output: inculudes: 
+1. mosbat_input: includes mosbat input txt  files: ground ruth and predicted PWMs.
+2. mosbat_output: includes: 
    * results.energy.correl.txt
    * correlation data frame: Pearson correlation score for each protein.
-   * out_eval_mosbat.txt: a txtx file with mean and std score.
+   * out_eval_mosbat.txt: a txt file with mean and std score.
 
