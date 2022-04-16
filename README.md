@@ -11,11 +11,15 @@ By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will g
 pip install protein-bert
 ```
 # Usage 
+After installing ProteinBERT you can update finetunning.py as in this git for saving predections.
 ```bash
 cd path/to/BindZFpredictor/directory
 data_name="${i}_zf_${i}_b"
-(where i = 10k k= $0\leq i\leq 10$)
-f="ath/to/BindZFpredictor/directory/${data_name}"
+(where i = 10k k= [0,10] see Data/BindZFpredictor folder)
+f="path/to/BindZFpredictor/directory/${data_name}"
+mkdir -p $f
+mkdir -p ${f}/predictions
+python3.6 main_bindzfpredictor.py -b_n ${data_name} -r 1 -p_add ${f} >> out
 ```
 
 # PWMpredictor
