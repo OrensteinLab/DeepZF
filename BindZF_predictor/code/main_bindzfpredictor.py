@@ -11,6 +11,8 @@ import argparse
 def user_input():
     parser = argparse.ArgumentParser()
     parser.add_argument('-b_n', '--benchmark_name', help='zfs data and labels name ', type=str, required=True)
+    parser.add_argument('-b_d', '--benchmark_dir', help='zfs data and labels directory ', type=str, required=True)
+    parser.add_argument('-m_d', '--model_dir', help='ProteinBERT pretrained model directory', type=str, required=True)
     parser.add_argument('-r', '--run_gpu', help='equal 1 if should run on gpu', type=int, required=True)
     parser.add_argument('-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True)
 
@@ -42,7 +44,7 @@ def main(args):
     OUTPUT_SPEC = OutputSpec(OUTPUT_TYPE, UNIQUE_LABELS)
 
     # Loading the dataset
-    BENCHMARKS_DIR = '.../Data/BindZFpredictor/'
+    BENCHMARKS_DIR = args['benchmark_dir']
 
     data_set_file_path = os.path.join(BENCHMARKS_DIR, '%s.csv' % BENCHMARK_NAME)
     data_set = pd.read_csv(data_set_file_path).dropna()
@@ -58,7 +60,7 @@ def main(args):
         print(f'{len(train_set)} training set records, {len(valid_set)} validation set records, {len(test_set)} test set records.')
 
         # Loading the pre-trained model and fine-tuning it on the loaded dataset
-        pretrained_model_generator, input_encoder = load_pretrained_model('.../proteinbert_models')
+        pretrained_model_generator, input_encoder = load_pretrained_model(args['model_dir'])
 
 
         # get_model_with_hidden_layers_as_outputs gives the model output access to the hidden layers (on top of the output)
