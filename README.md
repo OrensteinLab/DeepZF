@@ -118,7 +118,7 @@ python3.6 eval_PWMpredictor.py -p_add /predictions_folder/ --c_rc_add /path/to/c
 ```
 ### Flags
 Same as in PWMpredictor
-(-zf_p_df is different know)
+(-zf_p_df is different now)
 
 ### Model evaluation:
 For DeepZF evaluation we calculated the similarity of two motif pairs (on the predicted and experimentally based PWM), using [MoSBAT](https://github.com/csglab/MoSBAT).
