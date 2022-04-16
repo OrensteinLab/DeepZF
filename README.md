@@ -40,7 +40,7 @@ After installing ProteinBERT you can update finetunning.py as in this git for sa
     '-r', '--run_gpu', help='equal 1 if should run on gpu', type=int, required=True
     '-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True
 ```
-### Creating predicted binding ZF dataframe ans evaluate model
+### Creating predicted binding ZF dataframe and evaluate model
 ```
 python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path/to/Data
 ```
@@ -76,7 +76,7 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path
 ```
 ### Flags
 ```
-'-d_add', '--data_folder_address', help='main data and lables folder', type=str, required=True)
+'-d_add', '--data_folder_address', help='main data and labels folder', type=str, required=True)
 '-add', '--folder_address', help='main folder address for savings', type=str, required=True
 '-zf_p_df', '--pred_zf_df', help='predicted binding zinc fingers df', type=str, required=True
 '-lr', '--learning_rate', help='learning rate of adam optimizer', type=float, required=True
