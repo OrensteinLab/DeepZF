@@ -11,15 +11,28 @@ By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will g
 pip install protein-bert
 ```
 # Usage 
+* Training BindZFpredictor
 After installing ProteinBERT you can update finetunning.py as in this git for saving predections.
+
 ```bash
 cd path/to/BindZFpredictor/directory
+
 data_name="${i}_zf_${i}_b"
 (where i = 10k k= [0,10] see Data/BindZFpredictor folder)
 f="path/to/BindZFpredictor/directory/${data_name}"
 mkdir -p $f
 mkdir -p ${f}/predictions
-python3.6 main_bindzfpredictor.py -b_n ${data_name} -r 1 -p_add ${f} >> out
-```
 
+python3.6 main_bindzfpredictor.py -b_n ${data_name} -b_d path/to/bemchmark_directory -m_d path/to/ProteinBERT_pretrained_model -r 1 -p_add ${f} >> out
+```
+# Flags
+
+```
+   '-b_n', '--benchmark_name', help='zfs data and labels name ', type=str, required=True
+   '-b_d', '--benchmark_dir', help='zfs data and labels directory ', type=str, required=True
+    '-m_d', '--model_dir', help='ProteinBERT pretrained model directory', type=str, required=True
+    '-r', '--run_gpu', help='equal 1 if should run on gpu', type=int, required=True
+    '-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True
+```
+* Creating predicted binding ZF dataframe ans evaluate model
 # PWMpredictor
