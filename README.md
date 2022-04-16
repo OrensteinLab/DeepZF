@@ -10,8 +10,8 @@ By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will g
 ```bash
 pip install protein-bert
 ```
-# Usage 
-* # Training BindZFpredictor
+## Usage 
+### Training BindZFpredictor
 After installing ProteinBERT you can update finetunning.py as in this git for saving predections.
 
 ```bash
@@ -25,7 +25,7 @@ mkdir -p ${f}/predictions
 
 python3.6 main_bindzfpredictor.py -b_n ${data_name} -b_d path/to/bemchmark_directory -m_d path/to/ProteinBERT_pretrained_model -r 1 -p_add ${f} >> out
 ```
-# Flags
+### Flags
 
 ```
    '-b_n', '--benchmark_name', help='zfs data and labels name ', type=str, required=True
@@ -34,5 +34,12 @@ python3.6 main_bindzfpredictor.py -b_n ${data_name} -b_d path/to/bemchmark_direc
     '-r', '--run_gpu', help='equal 1 if should run on gpu', type=int, required=True
     '-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True
 ```
-* Creating predicted binding ZF dataframe ans evaluate model
+### Creating predicted binding ZF dataframe ans evaluate model
+python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predected ZF -m_p path/to/Data
+
+### Flags
+```
+'-p_add', '--pred_add', help='predictions saving folders add ', type=str, required=True
+'-m_p', '--main_path', help='main path add ', type=str, required=True
+```
 # PWMpredictor
