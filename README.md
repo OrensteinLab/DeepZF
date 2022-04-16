@@ -4,9 +4,18 @@ We present DeepZF, a two-step deep-learning-based pipeline for predicting bindin
 # BindZFpredictor
 # Prerequisites
 BindZFpredictor architecture is based on [ProteinBERT](https://github.com/nadavbra/protein_bert) which was implemented using Tensorflow.
-By installing [ProteinBERT] you will get all BindZFpredictor requiremnts:
+
+By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will get all BindZFpredictor requiremnts:
 
 ```bash
 pip install protein-bert
 ```
+# Usage 
+```bash
+cd path/to/BindZFpredictor/directory
+data_name="${i}_zf_${i}_b"
+(where i = 10k k= $0\leq i\leq 10$)
+f="ath/to/BindZFpredictor/directory/${data_name}"
+```
+
 # PWMpredictor
