@@ -102,7 +102,7 @@ python3.6 eval_PWMpredictor.py -p_add /predictions_folder/ --c_rc_add /path/to/c
 
 # DeepZF 
 ## Prerequisites
-1. running the model
+1. Running the model
 	* python >= 3.6
 	* tensorflow >= 2.4.0
 2. Model evaluation
