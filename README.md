@@ -11,6 +11,17 @@ By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will g
 pip install protein-bert
 ```
 ## Usage 
+
+### Predicting using BindZFpredictor
+Run under BindZFpredictor/code dir:
+```
+python3.6 main_bindzfpredictor_predict.py -in <input_file> -out <output_file> -m model.p -e encoder.p -r <gpu-0/1>
+```
+Example:
+```
+python3.6 main_bindzfpredictor_predict.py -in 40_zf_40_b.csv -out results.tsv -m model.p -e encoder.p -r 1
+```
+
 ### Training BindZFpredictor
 After installing ProteinBERT you can update finetunning.py as in this git for saving predictions.
 
