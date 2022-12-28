@@ -13,6 +13,11 @@ pip install protein-bert
 ## Usage 
 
 ### Predicting using BindZFpredictor
+Create trained model file model.p by concatenating its splits:
+```
+cat x?? > model.p
+```
+
 Run under BindZFpredictor/code dir:
 ```
 python3.6 main_bindzfpredictor_predict.py -in <input_file> -out <output_file> -m model.p -e encoder.p -r <gpu-0/1>
