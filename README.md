@@ -149,3 +149,5 @@ The script above creates 2 folder:
    * correlation data frame: Pearson correlation score for each protein.
    * out_eval_mosbat.txt: a txt file with mean and std score.
 
+# Cite
+https://doi.org/10.1093/bioinformatics/btac469
