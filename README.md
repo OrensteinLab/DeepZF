@@ -10,6 +10,9 @@ By installing [ProteinBERT](https://github.com/nadavbra/protein_bert) you will g
 ```bash
 pip install protein-bert
 ```
+
+BindZFpredictor was run on python 3.6.8 with keras 2.6.0 and tensorflow 2.6.2
+
 ## Usage 
 
 ### Predicting using BindZFpredictor
