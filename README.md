@@ -30,6 +30,8 @@ Example:
 python3.6 main_bindzfpredictor_predict.py -in 40_zf_40_b.csv -out results.tsv -m model.p -e encoder.p -r 1
 ```
 
+Note that you will need to identify the zinc fingers according to the regular expression by yourself. Then, append each finger by its adajcent 40aa residues on each side, and proive them as input to the command line above to obtain their DNA-binding probabilities.
+
 ### Training BindZFpredictor
 After installing ProteinBERT you can update finetunning.py as in this git for saving predictions.
 
