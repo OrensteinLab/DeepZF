@@ -78,6 +78,18 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predicted ZF -m_p path
 
 	
 ## Usage
+
+### Predicting using PWMpredictor
+
+Run under PWMpredictor/code dir:
+```
+python3.6 main_PWMpredictor.py -in <input_file> -out <output_file> -m <model_file>
+```
+Example:
+```
+python3.6 main_bindzfpredictor_predict.py -in ../../Data/PWMpredictor/c_rc_df.csv -out predictions.txt -m transfer_model.h5
+```
+
 ### Training PWMpredictor
 1. Create saving folders:
 ```
