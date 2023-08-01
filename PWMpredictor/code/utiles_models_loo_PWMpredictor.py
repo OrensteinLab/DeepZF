@@ -5,7 +5,7 @@ from tensorflow.keras.layers import Dense, Dropout, concatenate, Input
 from tensorflow.keras.backend import clear_session
 from tensorflow.keras.optimizers import Adam
 import pickle
-from utiles_loo_PWMprecictor import *
+from utiles_loo_PWMpredictor import *
 
 
 def model_func(x_train):
