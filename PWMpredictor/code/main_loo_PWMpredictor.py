@@ -1,5 +1,5 @@
 import tensorflow as tf
-from models_loo_PWMprecictor import *
+from models_loo_PWMpredictor import *
 import argparse
 
 
