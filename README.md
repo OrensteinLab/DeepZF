@@ -87,7 +87,7 @@ python3.6 main_PWMpredictor.py -in <input_file> -out <output_file> -m <model_fil
 ```
 Example:
 ```
-python3.6 main_PWMpredictor.py -in ../../Data/PWMpredictor/c_rc_df.csv -out predictions.txt -m transfer_model.h5
+python3.6 main_PWMpredictor.py -in ../../Data/PWMpredictor/c_rc_df.csv -out predictions.txt -m ../models/transfer_model.h5
 ```
 
 ### Training PWMpredictor
