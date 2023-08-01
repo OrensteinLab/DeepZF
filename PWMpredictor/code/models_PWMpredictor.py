@@ -1,4 +1,4 @@
-from utiles_models_PWMprecictor import *
+from utiles_models_PWMpredictor import *
 
 
 def pipeline_model(b1h_input_data, b1h_label_mat, c_rc_df, zf_df, folder_address, lr, epochs, t_v, res_num):
