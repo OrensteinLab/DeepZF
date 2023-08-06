@@ -18,6 +18,8 @@ BindZFpredictor was run on python 3.6.8 with keras 2.6.0 and tensorflow 2.6.2
 ### Predicting using BindZFpredictor
 Create trained model file model.p by concatenating its splits:
 ```
+cd BindZF_predictor/code/
+
 cat x?? > model.p
 ```
 
