@@ -77,6 +77,8 @@ python3.6 create_zf_pred_df_and_cal_auc.py -p_add path/to/predicted ZF -m_p path
 ## Prerequisites
 * python >= 3.6
 * tensorflow >= 2.4.0
+* natsort >= 8.4.0
+* pandas >= 2.0.3
 
 	
 ## Usage
