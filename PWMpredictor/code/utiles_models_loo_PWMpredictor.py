@@ -5,6 +5,7 @@ from tensorflow.keras.layers import Dense, Dropout, concatenate, Input
 from tensorflow.keras.backend import clear_session
 from tensorflow.keras.optimizers import Adam
 import pickle
+from tensorflow.keras.models import clone_model
 from utiles_loo_PWMpredictor import *
 
 
@@ -70,7 +71,7 @@ def pipeline_func(c_rc_df, zf_df, b1h_model, folder_address, lr, epochs, res_num
 
         x_train, x_test = data_input_model, data_test_model
         y_train, y_test = np.asarray(label_mat), np.asarray(label_test)
-        model = b1h_model
+        model = clone_model(b1h_model)
         opt = Adam(learning_rate=lr)
         model.compile(loss='categorical_crossentropy', optimizer=opt)
         history = model.fit(x_train, y_train, epochs=epochs, batch_size=10, verbose=2)
